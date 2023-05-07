@@ -80,10 +80,9 @@ class App extends Component {
   };
 
   render() {
-    const totalQuantity = Object.values(this.state.quantities).reduce(
-      (accumulator, current) => accumulator + current,
-      0
-    );
+    const totalQuantity = products
+      .map((product) => this.state.quantities[product.id])
+      .reduce((accumulator, current) => accumulator + current, 0);
 
     return (
       <div>
@@ -101,7 +100,7 @@ class App extends Component {
               product={item}
               onQuantityChange={this.handleQuantityChange}
             />
-          ))};
+          ))}
         </main>
       </div>
     );
