@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "Week 1/Day3/shopcart",
+			"group": "clean",
+			"problemMatcher": [],
+			"label": "npm: install - Week 1/Day3/shopcart",
+			"detail": "install dependencies from package"
+		}
+	]
+}

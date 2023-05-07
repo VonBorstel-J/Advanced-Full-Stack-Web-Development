@@ -1,0 +1,21 @@
+.header {
+  background-color: #a2d2ff; /* Baby blue color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.header-left {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right span {
+  margin-left: 10px;
+}
