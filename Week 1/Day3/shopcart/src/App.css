@@ -19,3 +19,29 @@
 .header-right span {
   margin-left: 10px;
 }
+
+/*Products Styling*/
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  background-color: #f8f9fa;
+}
+
+.product img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.quantity-input {
+  width: 50px;
+}

@@ -11,41 +11,50 @@ import walletImg from "./products/wallet.jpg";
 const products = [
   {
     id: 1,
-    name: "Unisex Cologne",
-    img: cologneImg,
+    image: cologneImg,
     desc: "Unisex Cologne",
     value: 0,
   },
   {
     id: 2,
-    name: "Apple iWatch",
-    img: iwatchImg,
+    image: iwatchImg,
     desc: "Apple iWatch",
     value: 0,
   },
   {
     id: 3,
-    name: "Unique Mug",
-    img: mugImg,
+    image: mugImg,
     desc: "Unique Mug",
     value: 0,
   },
   {
     id: 4,
-    name: "Mens Wallet",
-    img: walletImg,
+    image: walletImg,
     desc: "Mens Wallet",
     value: 0,
   },
 ];
 
-const Product = ({ product }) => {
+const Product = ({ product, onQuantityChange }) => {
+  const handleInputChange = (e) => {
+    const newQuantity = parseInt(e.target.value) || 0;
+    onQuantityChange(product.id, newQuantity);
+  };
+
   return (
-    <div>
-      <img src={product.img} alt={product.name} />
-      <h4>{product.name}</h4>
-      <p>{product.desc}</p>
-      <p>Quantity: {product.value}</p>
+    <div className="product">
+      <img src={product.image} alt={product.desc} />
+      <div className="product-info">
+        <h4>{product.desc}</h4>
+        <p>Quantity: {product.value}</p>
+      </div>
+      <input
+        className="quantity-input"
+        type="number"
+        min="0"
+        value={product.value}
+        onChange={handleInputChange}
+      />
     </div>
   );
 };
@@ -85,8 +94,17 @@ class App extends Component {
             <span>{totalQuantity}</span>
           </div>
         </header>
-        {/* ...rest of your app */}
+        <main className="products">
+          {products.map((item) => (
+            <Product
+              key={item.id}
+              product={item}
+              onQuantityChange={this.handleQuantityChange}
+            />
+          ))};
+        </main>
       </div>
     );
-
+  }
+}
 export default App;
