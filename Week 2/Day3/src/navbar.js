@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import products from "./products";
-import Product from "./products";
+import "./App.css";
 
 const Navbar = () => {
-  const [quantities, setQuantities] = useState(
+  const [quantities] = useState(
     products.reduce((acc, product) => {
       acc[product.id] = product.value;
       return acc;
