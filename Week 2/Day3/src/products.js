@@ -10,24 +10,28 @@ const products = [
     image: cologneImg,
     desc: "Unisex Cologne",
     value: 0,
+    rating: 1.5
   },
   {
     id: 2,
     image: iwatchImg,
     desc: "Apple iWatch",
     value: 0,
+    rating: 5
   },
   {
     id: 3,
     image: mugImg,
     desc: "Unique Mug",
     value: 0,
+    rating: 4
   },
   {
     id: 4,
     image: walletImg,
     desc: "Mens Wallet",
     value: 0,
+    rating: 3
   },
 ];
 
