@@ -1,22 +1,30 @@
-import React, { Component } from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./navbar";
-import DisplayProducts from "./displayProducts";
+import React, { useState } from 'react';
+import Navbar from './navbar';
+import DisplayProducts from './displayProducts';
+import Cart from './cart';
+import products from './products';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CartProvider from './cart';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <DisplayProducts />
+
+function App() {
+  const [cartItems, setCartItems] = useState([]);
+  return (
+    <Router>
+      <div className="App">
+        <CartProvider>
+        <Navbar cart={cartItems} />
+        <Routes> 
+            <Route path="/" element={<DisplayProducts products={products} />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </CartProvider>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
-
 
 
 
