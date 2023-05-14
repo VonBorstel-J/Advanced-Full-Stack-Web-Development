@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import products from "./products";
+import Product from "./products";
 
 const Navbar = () => {
-  const totalQuantity = products
-    .map((product) => this.state.quantities[product.id])
-    .reduce((accumulator, current) => accumulator + current, 0);
+  const [quantities, setQuantities] = useState(
+    products.reduce((acc, product) => {
+      acc[product.id] = product.value;
+      return acc;
+    }, {})
+  );
+
+  const totalQuantity = Object.values(quantities).reduce(
+    (accumulator, current) => accumulator + current,
+    0
+  );
 
   return (
     <nav className="navbar">

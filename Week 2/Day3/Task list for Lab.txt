@@ -1,0 +1,56 @@
+
+
+| Lab Assignment: Building a Shopping Cart App with React |
+|-------------------------------------------------------|
+
+| Task 1: Separate Components            | [ * ] |
+|---------------------------------------|-----|
+| - State data: products.js              | [ * ] |
+| - Navbar: navbar.js                    | [ * ] |
+| - Display Products: displayProducts.js | [ * ] |
+
+| Task 2: Add Modal for Product Information | [ ] |
+|-------------------------------------------|-----|
+| - Add modal (lightbox)                    | [ ] |
+| - Include product description, image,     |     |
+|   and ratings property in data            | [ ] |
+
+| Task 3: Create Add and Subtract Buttons | [ ] |
+|----------------------------------------|-----|
+| - Create add and subtract buttons       | [ ] |
+| - Implement handlers using setState()   | [ ] |
+
+| Task 4: Implement Router in Navbar      | [ ] |
+|----------------------------------------|-----|
+| - Install react-router-dom              | [ ] |
+| - Create router with links for home     |     |
+|   and cart components                   | [ ] |
+
+| Task 5: Create Cart Component           | [ ] |
+|----------------------------------------|-----|
+| - Create separate cart component        | [ ] |
+| - Display product information using JSX | [ ] |
+
+| Task 6: Style the App                   | [ ] |
+|----------------------------------------|-----|
+| - Use font awesome icons                | [ ] |
+| - Style with react-bootstrap            | [ ] |
+| - Customize styling with CSS            | [ ] |
+
+Lab Assignment Workflow:
+
+1. [ ] Complete Task 1 (Separate Components) before moving to Task 2.
+2. [ ] In the displayProducts.js file, import useState from React and Modal from React-Bootstrap.
+3. [ ] Use the useState hook to set the show/hide state of the modal.
+4. [ ] Create two handlers using the state hook method to handle event clicks.
+5. [ ] Modify the product image code within the return() to call the show handler.
+6. [ ] Create the modal component after the map method and customize it to display product information.
+7. [ ] Add the ratings property to the product data in products.js.
+8. [ ] Pass the product to the show handler within the map method.
+9. [ ] Modify the show handler to update the state with the selected product.
+10. [ ] Customize the header, body, and ratings styling within the modal.
+11. [ ] Test the modal in the browser. If it doesn't work, try to resolve the issue on your own for 10 minutes before seeking assistance.
+12. [ ] If the modal works correctly, proceed to the remaining tasks.
+13. [ ] Continue with the instructions provided for the rest of the tasks.
+14. [ ] Test the app regularly as you progress and seek help if needed.
+
