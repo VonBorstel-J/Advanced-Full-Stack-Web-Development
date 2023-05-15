@@ -1,40 +1,13 @@
-// import React, { useState } from "react";
-// import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import products from "./products";
-// import "./App.css";
-
-// const Navbar = () => {
-//   const [quantities] = useState(
-//     products.reduce((acc, product) => {
-//       acc[product.id] = product.value;
-//       return acc;
-//     }, {})
-//   );
-
-//   const totalQuantity = Object.values(quantities).reduce(
-//     (accumulator, current) => accumulator + current,
-//     0
-//   );
-
-//   return (
-//     <nav className="navbar">
-//       <div className="header-left">Shop to React</div>
-//       <div className="header-right">
-//         <FontAwesomeIcon icon={faShoppingCart} />
-//         <span>{totalQuantity}</span>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from './cart';
 import './App.css';
 
 function Navbar({ cart }) {
+  const { cartItems } = useContext(CartContext);
+  const cartLength = (cartItems || []).length;
+
   return (
     <div className="header">
       <Link to="/">
@@ -42,7 +15,7 @@ function Navbar({ cart }) {
       </Link>
       <Link to="/cart">
         <div className="header-right">
-          <span className="cart-icon">Cart ({cart.length})</span>
+          <span className="cart-icon">Cart ({cartLength})</span>
         </div>
       </Link>
     </div>

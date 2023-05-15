@@ -21,9 +21,12 @@
   margin-left: 10px;
 }
 
+/* ---------------------------------------------------------------------------------------------------------------- */
+
 /* Products Styling */
 .product {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
@@ -35,23 +38,48 @@
   max-width: 100px;
   max-height: 100px;
   object-fit: contain;
-  margin-right: 15px;
+  margin-bottom: 10px;
+  align-self: flex-start; 
 }
 
-.product-info {
-  flex-grow: 1;
+.product-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  align-self: flex-start; 
 }
 
-.quantity-input {
-  width: 50px;
+
+.product-details {
+  display: flex;
+  align-items: flex-start; 
+  justify-content: space-between;
+  width: 100%;
 }
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  margin: 0 10px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------- */
 
 
 /* Modal Styling */
 
 .custom-modal {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
@@ -88,7 +116,7 @@
 }
 
 .modal-footer button {
-  background-color: #a2d2ff;
+  background-color: #60b0fa;
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -97,17 +125,53 @@
 }
 
 .modal-footer button:hover {
-  background-color: #7fb3e3;
+  background-color: #fc1717;
 }
 
-.close-button {
-  background-color: transparent;
+/* -------------------------------------------------------------------------------------------- */
+
+/* cart styling */ 
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item img {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-info button {
+  margin-top: 10px;
+}
+
+/* Add to Cart Button Styling */
+.add-to-cart-button {
+  background-color: #60b0fa;
+  color: #fff;
+  padding: 8px 16px;
   border: none;
-  font-size: 1.5em;
-  color: #000;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.close-button:hover {
-  color: #ff0000;
+.add-to-cart-button:hover {
+  background-color: #fc1717;
 }
+

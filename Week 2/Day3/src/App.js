@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './navbar';
 import DisplayProducts from './displayProducts';
-import Cart from './cart';
+import { Cart, CartProvider } from './cart';
 import products from './products';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CartProvider from './cart';
-import './App.css'
+import './App.css';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
   return (
     <Router>
       <div className="App">
         <CartProvider>
-        <Navbar cart={cartItems} />
-        <Routes> 
-            <Route path="/" element={<DisplayProducts products={products} />} />
+          <Navbar />
+          <Routes> 
+          <Route path="/" element={<DisplayProducts products={products} />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </CartProvider>
