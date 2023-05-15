@@ -11,7 +11,12 @@ function Navbar({ cart }) {
   return (
     <div className="header">
       <Link to="/">
-        <div className="header-left">Logo</div>
+        <div className="header-left">
+          <span className="logo-text" style={{ fontFamily: 'Roboto' }}>
+            Shop 2
+          </span>
+          <span className="logo-r">R</span>eact
+        </div>
       </Link>
       <Link to="/cart">
         <div className="header-right">

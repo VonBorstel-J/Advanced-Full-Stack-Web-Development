@@ -1,91 +1,123 @@
-import React, { useState, useContext } from "react";
-import { Modal } from "react-bootstrap";
-import { CartContext } from "./cart";
-import "./App.css";
+// import React, { useState, useContext } from "react";
+// import { Modal } from "react-bootstrap";
+// import { CartContext } from "./cart";
+// import "./App.css";
+
+// const DisplayProducts = ({ products }) => {
+//   const { addToCart } = useContext(CartContext);
+//   const [selectedProduct, setSelectedProduct] = useState(null);
+
+//   const handleShow = (product) => {
+//     const selectedProductWithQuantity = {
+//       ...product,
+//       quantity: 1,
+//     };
+//     setSelectedProduct(selectedProductWithQuantity);
+//     console.log("Selected product:", selectedProductWithQuantity);
+//   };
+
+//   const handleQuantityChange = (product, change) => {
+//     if (selectedProduct && selectedProduct.id === product.id) {
+//       const newQuantity = selectedProduct.quantity + change;
+//       if (newQuantity > 0 && newQuantity <= selectedProduct.stock) {
+//         setSelectedProduct({ ...selectedProduct, quantity: newQuantity });
+//         console.log("Quantity changed:", selectedProduct);
+//       } else {
+//         console.log("Invalid quantity change:", selectedProduct);
+//       }
+//     } else {
+//       if (change > 0) {
+//         setSelectedProduct({ ...product, quantity: 1 });
+//         console.log("Product selected with plus button:", product);
+//       } else {
+//         console.log("No product selected for quantity change.");
+//       }
+//     }
+//   };
+
+//   const handleAddToCart = () => {
+//     if (selectedProduct) {
+//       if (selectedProduct.quantity > 0) {
+//         addToCart(selectedProduct, selectedProduct.quantity);
+//         console.log("Added to cart:", selectedProduct);
+//         setSelectedProduct(null);
+//       } else {
+//         console.log("Invalid quantity:", selectedProduct);
+//       }
+//     } else {
+//       console.log("No product added to cart.");
+//     }
+//   };
+
+//   return (
+//     <div className="products">
+//       {products.map((product) => (
+//         <div key={product.id} className="product">
+//           <div className="product-title">{product.desc}</div>
+//           <img
+//             src={product.image}
+//             alt={product.desc}
+//             onClick={() => handleShow(product)}
+//           />
+//           <div className="quantity-container">
+//             <button
+//               className="quantity-button"
+//               onClick={() => handleQuantityChange(product, -1)}
+//               disabled={!selectedProduct || selectedProduct.id !== product.id}
+//             >
+//               -
+//             </button>
+
+//             <button
+//               className="quantity-button"
+//               onClick={() => handleQuantityChange(product, 1)}
+              
+//             >
+//               +
+//             </button>
+
+//             <button onClick={handleAddToCart} disabled={!selectedProduct}>
+//               Add to Cart
+//             </button>
+//           </div>
+
+
+//           <Modal
+//             show={selectedProduct && selectedProduct.id === product.id}
+//             onHide={() => setSelectedProduct(null)}
+//             dialogClassName="custom-modal"
+//           >
+//             <Modal.Header>
+//               <Modal.Title>{selectedProduct?.desc}</Modal.Title>
+//             </Modal.Header>
+//             <Modal.Body>
+//               <img
+//                 src={selectedProduct?.image}
+//                 alt={selectedProduct?.desc}
+//                 style={{ maxWidth: "100%", height: "auto" }}
+//               />
+//               <p>Rating: {selectedProduct?.rating} out of 5</p>
+//             </Modal.Body>
+//             <Modal.Footer>
+//               <button onClick={() => setSelectedProduct(null)}>Close</button>
+//             </Modal.Footer>
+//           </Modal>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default DisplayProducts;
+
+
+import ProductCard from './productCard';
 
 const DisplayProducts = ({ products }) => {
-  const { addToCart } = useContext(CartContext);
-  const [show, setShow] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [quantity, setQuantity] = useState(0);
-
-  // Function to close the Modal and reset quantity
-  const handleClose = () => {
-    setShow(false);
-    setQuantity(0);
-  };
-
-  // Function to show the Modal with the selected product and reset quantity
-  const handleShow = (product) => {
-    setSelectedProduct(product);
-    setShow(true);
-    setQuantity(0);
-  };
-
-  // Function to handle quantity changes (+1 or -1)
-  const handleQuantityChange = (change) => {
-    const newQuantity = quantity + change;
-    // Validate the new quantity to stay within the available range
-    if (newQuantity >= 0 && newQuantity <= selectedProduct?.quantity) {
-      setQuantity(newQuantity);
-    }
-  };
-
-  // Function to add the selected product and quantity to the cart
-  const handleAddToCart = () => {
-    if (selectedProduct && quantity > 0) {
-      addToCart({ ...selectedProduct }, quantity);
-      handleClose();
-    }
-  };
-
   return (
     <div className="products">
       {products.map((product) => (
-        <div key={product.id} className="product">
-          <div className="product-title">{product.desc}</div>
-          <img
-            src={product.image}
-            alt={product.desc}
-            onClick={() => handleShow(product)}
-          />
-          <div className="product-details">
-            {/* Modal for displaying product details */}
-            <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
-              <Modal.Header>
-                <Modal.Title>{selectedProduct?.desc}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img
-                  src={selectedProduct?.image}
-                  alt={selectedProduct?.desc}
-                  style={{ maxWidth: "100%", height: "auto" }}
-                />
-                <p>Rating: {selectedProduct?.rating} out of 5</p>
-                <div className="quantity-container">
-                  <button
-                    className="quantity-button"
-                    onClick={() => handleQuantityChange(-1)}
-                  >
-                    -
-                  </button>
-                  <div className="quantity">{quantity}</div>
-                  <button
-                    className="quantity-button"
-                    onClick={() => handleQuantityChange(1)}
-                  >
-                    +
-                  </button>
-                </div>
-              </Modal.Body>
-              <Modal.Footer>
-                {/* Add to Cart and Close buttons */}
-                <button onClick={handleAddToCart}>Add to Cart</button>
-                <button onClick={handleClose}>Close</button>
-              </Modal.Footer>
-            </Modal>
-          </div>
-        </div>
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
