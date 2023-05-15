@@ -32,15 +32,18 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './App.css';
 
 function Navbar({ cart }) {
   return (
-    <div className="navbar">
+    <div className="header">
       <Link to="/">
-        <div className="logo">Logo</div>
+        <div className="header-left">Logo</div>
       </Link>
       <Link to="/cart">
-        <div className="cart-icon">Cart ({cart.length})</div>
+        <div className="header-right">
+          <span className="cart-icon">Cart ({cart.length})</span>
+        </div>
       </Link>
     </div>
   );

@@ -1,5 +1,6 @@
+/* Header Styling */
 .header {
-  background-color: #a2d2ff; /* Baby blue color */
+  background-color: #a2d2ff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,8 +21,7 @@
   margin-left: 10px;
 }
 
-/*Products Styling*/
-
+/* Products Styling */
 .product {
   display: flex;
   align-items: center;
@@ -44,4 +44,70 @@
 
 .quantity-input {
   width: 50px;
+}
+
+
+/* Modal Styling */
+
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  max-width: 500px;
+}
+
+.modal-header {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  text-align: right;
+}
+
+.modal-footer button {
+  background-color: #a2d2ff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-footer button:hover {
+  background-color: #7fb3e3;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: #000;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ff0000;
 }

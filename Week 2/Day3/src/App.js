@@ -5,7 +5,7 @@ import Cart from './cart';
 import products from './products';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CartProvider from './cart';
-
+import './App.css'
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
