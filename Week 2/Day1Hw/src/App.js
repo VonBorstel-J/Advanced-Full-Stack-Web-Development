@@ -1,8 +1,8 @@
-import "./styles.css";
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, ListGroupItemHeading } from "reactstrap";
+import { TodoData } from "./TodoData";
+import './styles.css';
 import "bootstrap/dist/css/bootstrap.css";
-import $ from "jquery";
 
 function Todos(props) {
   return (
@@ -35,9 +35,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      TodoLists: TodoData
+      TodoList1: TodoData.TodoList1,
+      TodoList2: TodoData.TodoList2,
+      TodoList3: TodoData.TodoList3,
+      TodoList4: TodoData.TodoList4,
+      TodoList5: TodoData.TodoList5,
+      TodoList6: TodoData.TodoList6,
+      TodoList7: TodoData.TodoList7,
     };
   }
+
+  handleNote = (note) => {
+    document.getElementById("notebox").style.visibility = "visible";
+    document.getElementById("note").innerHTML = note;
+  };
+
+  dismissNote = () => {
+    document.getElementById("notebox").style.visibility = "hidden";
+    document.getElementById("note").innerHTML = "";
+  };
 
   render() {
     let d = new Date();
@@ -56,46 +72,75 @@ class App extends Component {
 
     if (n === "Monday") {
       todo = (
-        <Todos todolists={this.state.TodoList1} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList1}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+        />
       );
     } else if (n === "Tuesday") {
       todo = (
-        <Todos todolists={this.state.TodoList2} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList2}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+        />
       );
     } else if (n === "Wednesday") {
       todo = (
-        <Todos todolists={this.state.TodoList3} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList3}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+        />
       );
     } else if (n === "Thursday") {
       todo = (
-        <Todos todolists={this.state.TodoList4} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList4}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+        />
       );
     } else if (n === "Friday") {
       todo = (
-        <Todos todolists={this.state.TodoList5} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList5}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+        />
       );
     } else if (n === "Saturday") {
       todo = (
-        <Todos todolists={this.state.TodoList6} handleNote={this.handleNote} dismissNote={this.dismissNote} />
-      );
-    } else if (n === "Sunday") {
-      todo = (
-        <Todos todolists={this.state.TodoList7} handleNote={this.handleNote} dismissNote={this.dismissNote} />
+        <Todos
+          todolists={this.state.TodoList6}
+          handleNote={this.handleNote}
+          dismissNote={this.dismissNote}
+          />
+        );
+      } else if (n === "Sunday") {
+        todo = (
+          <Todos
+            todolists={this.state.TodoList7}
+            handleNote={this.handleNote}
+            dismissNote={this.dismissNote}
+          />
+        );
+      }
+  
+      return (
+        <div className="App">
+          <h1>
+            <span className="d-flex justify-content-center text-warning">
+              {n}'s
+            </span>
+            Todo List
+          </h1>
+          {todo}
+        </div>
       );
     }
-
-    return (
-      <div className="App">
-        <h1>
-          <span className="d-flex justify-content-center text-warning">
-            {n}'s
-          </span>
-          Todo List
-        </h1>
-        {todo}
-      </div>
-    );
   }
-}
-
-export default App;
+  
+  export default App;
+  
