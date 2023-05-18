@@ -232,12 +232,13 @@
 // export default App;
 
 
-
-import React, { Component } from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
-import { TodoData } from "./TodoData";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.css";
+import React, { Component } from "react";
+import $ from 'jquery';
+import { ListGroup, ListGroupItem } from "reactstrap";
+import { TodoData } from "./TodoData";
+
 
 class Todos extends Component {
   handleToggle = (todo) => {
@@ -312,15 +313,15 @@ class App extends Component {
   }
 
   handleNote = (note) => {
-    document.getElementById("notebox").style.visibility = "visible";
-    document.getElementById("note").innerHTML = note;
+    $("#notebox").css("visibility", "visible");
+    $("#note").html(note);
   };
 
   dismissNote = () => {
-    document.getElementById("notebox").style.visibility = "hidden";
-    document.getElementById("note").innerHTML = "";
+    $("#notebox").css("visibility", "hidden");
+    $("#note").html("");
   };
-
+  
   updateTodoList = (updatedList) => {
     let d = new Date();
     let day = [
